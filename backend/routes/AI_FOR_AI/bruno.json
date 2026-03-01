@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "AI_FOR_AI",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

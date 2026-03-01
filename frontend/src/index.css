@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@keyframes pulse-mid {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+html,body,#root { height: 100%; }
+body { background: #0A0A14; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(168,85,247,0.25); border-radius: 9999px; }
+/* Outer glowing pulse */
+@keyframes pulse-outer {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1.2);
+    filter: blur(6px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.6);
+    filter: blur(12px);
+  }
+}
+
+/* Ripple expanding circle */
+@keyframes ripple-wave {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(2.3);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+.mid-pulse {
+  animation: pulse-mid 1.5s infinite ease-in-out;
+}
+
+.outer-pulse {
+  animation: pulse-outer 2.4s infinite ease-in-out;
+}
+
+.ripple {
+  animation: ripple-wave 2.8s infinite ease-out;
+}
