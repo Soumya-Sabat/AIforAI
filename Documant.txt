@@ -1,0 +1,121 @@
+running project: 
+	Backend: 
+		cd backend 
+		npm install 
+		npm run dev
+
+	frontend: 
+		cd backend 
+		npm install 
+		npm run dev
+
+	.env file 
+		MONGO_URI= 
+		JWT_SECRET= 
+		PORT=5000
+
+Backend Folder: 
+	config/db.js 
+		-Connects to MongoDB database 
+		-Initializes database connection
+
+	controllers/authController.js 
+		-regester/login user 
+		-jwt authentication controllers/reportController.js 
+		-submit new report 
+		-fatech reports 
+	/adminController.js 
+		-Dashboard statistics 
+		-Reviewer performance metrics 
+		-Peer metrics 
+		-Review outcomes 
+		-Team member creation 
+		-Toggle user activation 
+	/chatbot.controller.js 
+		-Handles chatbot interaction 
+		-Stores chat history
+
+middlewares/
+Auth.js
+    -JWT verification middleware
+    -Role-based access control
+    -Protects private routes
+
+models/
+User.js
+    -Stores user data
+    Roles: user, peer, admin
+    Contains isActive flag
+
+Report.js
+    -Stores submitted AI reports
+    -Linked to users
+
+Review.js
+    -Stores peer and admin reviews
+    -reviewType: "peer" or "admin"
+    -status: approved / rejected / pending
+    -remarks
+    -reviewedBy reference
+
+Assignment.js
+    -Maps reports to assigned peers
+
+ChatHistory.js
+    -Stores chatbot conversations
+
+Counter.js
+    -Used for generating custom incremental IDs
+
+routes/
+    -Defines API endpoints.
+
+authRoutes.js
+    -BASE path: /api/auth/*
+    -Login / register
+
+
+adminRoutes.js
+    -Base path: /api/admin/*
+    -create a new peer or admin
+        --route: POST /api/admin/create-user
+    -Return team members
+        --Base path: GET /api/admin/team
+    -Toggles user active status
+        --BAse path: PUT /api/admin/toggle/:id
+
+reportRoutes.js
+    -Base path : /api/reports
+    -Upload report
+        --path: POST /api/reports/submit
+    -Returns: All reports
+        --path : GET /api/reports/all
+    -peer submit review decision
+        --path : POST /api/reports/prre-review/:id
+    -admin submit review decision
+        --path : POST /api/reports/admin-review/:id
+
+chatbot.routes.js
+    -Base path : /api/chatbot/*
+    -Sends user message to chatbot
+        --base path : POST /api/chatbot/chat
+    -save history
+        --base path: GET /api/chatbot/history
+    -go to model for checking prompt is safe or not
+        -- path : POST /api/chatbot/safety-check 
+
+uploads/
+    -Stores uploaded video files from reports.
+
+utils/
+generateToken.js
+    -Generates JWT token for authentication
+
+server.js
+    -Entry point of backend
+    -Configures middleware
+    -Connects database
+    -Registers routes
+
+createAdmin.js
+    -Script to manually create initial admin user
