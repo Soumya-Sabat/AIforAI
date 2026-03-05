@@ -1,0 +1,28 @@
+{
+  "name": "blockchain-module",
+  "version": "1.0.0",
+  "description": "Decentralized blockchain module with PoA consensus",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "blockchain",
+    "proof-of-authority",
+    "decentralized"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "form-data": "^4.0.5",
+    "ipfs-http-client": "^60.0.1",
+    "level": "^8.0.1",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
