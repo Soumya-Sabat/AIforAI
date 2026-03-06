@@ -94,7 +94,6 @@ export default function ManageReports() {
                 </div>
               ))}
             </div>
-
           </div>
         </main>
       </div>

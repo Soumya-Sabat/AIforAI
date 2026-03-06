@@ -7,14 +7,14 @@ import { FiGrid, FiFileText, FiEye, FiUsers, FiShield, FiActivity, FiSettings, F
 import { jwtDecode } from "jwt-decode";
 
 const menu = [
-  { label: "Dashboard",         path: "/admin/dashboard",    icon: FiGrid },
-  { label: "Submissions",       path: "/admin/submissions",  icon: FiFileText },
-  { label: "Review Monitoring", path: "/admin/reviews",      icon: FiEye },
-  { label: "Users",             path: "/admin/manageteam",   icon: FiUsers },
-  { label: "AI Governance",     path: "/admin/ai-governance",icon: FiShield },
-  { label: "Audit Logs",        path: "/admin/audit-logs",   icon: FiActivity },
-  { label: "Settings",          path: "/admin/settings",     icon: FiSettings },
-  { label: "Logout",            action: "logout",             icon: FiLogOut },
+  { label: "Dashboard",path: "/admin/dashboard",icon: FiGrid },
+  { label: "Submissions", path: "/admin/submissions",  icon: FiFileText },
+  { label: "Review Monitoring", path: "/admin/reviews", icon: FiEye },
+  { label: "Users", path: "/admin/manageteam", icon: FiUsers },
+  { label: "AI Governance",path: "/admin/ai-governance",icon: FiShield },
+  { label: "Audit Logs", path: "/admin/audit-logs",icon: FiActivity },
+  { label: "Settings", path: "/admin/settings", icon: FiSettings },
+  { label: "Logout",action: "logout",icon: FiLogOut },
 ];
 
 const selectCls = "w-full p-2.5 rounded-lg bg-gray-900 border border-white/10 text-sm text-white focus:outline-none focus:border-purple-500 transition";

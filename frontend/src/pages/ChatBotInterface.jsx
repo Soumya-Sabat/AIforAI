@@ -118,6 +118,7 @@ export default function ChatBotInterface() {
   const [reportStatus, setReportStatus] = useState("idle");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
   const fileInputRef = useRef(null);

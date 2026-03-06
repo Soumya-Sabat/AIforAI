@@ -246,8 +246,7 @@ export default function SubmitReport() {
               <button
                 onClick={handleSubmit}
                 className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700
-                           transition rounded-lg font-medium text-sm"
-              >
+                           transition rounded-lg font-medium text-sm">
                 Submit Report
               </button>
             )}

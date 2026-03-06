@@ -28,4 +28,5 @@ export default function StatCard({ title, value, note, change, changePositive = 
       </div>
     </div>
   );
+  
 }

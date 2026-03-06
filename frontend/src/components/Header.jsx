@@ -9,7 +9,6 @@ export default function Header() {
         <div className="md:hidden text-white font-semibold text-sm">AI for AI</div>
         <div className="hidden md:block text-gray-400 text-sm">Overview</div>
       </div>
-
       {/* Right */}
       <div className="flex items-center gap-2 sm:gap-4">
         <NotificationBell />

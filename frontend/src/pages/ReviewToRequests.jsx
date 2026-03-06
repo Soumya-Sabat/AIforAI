@@ -8,12 +8,12 @@ import { jwtDecode } from "jwt-decode";
 
 export default function ReviewRequests() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [reviews, setReviews]         = useState([]);
-  const [filter, setFilter]           = useState("all");
-  const [search, setSearch]           = useState("");
-  const [sortOrder, setSortOrder]     = useState("newest");
-  const [page, setPage]               = useState(1);
-  const [loading, setLoading]         = useState(true);
+  const [reviews, setReviews] = useState([]);
+  const [filter, setFilter]=useState("all");
+  const [search, setSearch]= useState("");
+  const [sortOrder, setSortOrder]= useState("newest");
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const [feedbackMap, setFeedbackMap] = useState({});
   const pageSize = 5;
 
@@ -92,9 +92,9 @@ export default function ReviewRequests() {
     <div className="flex min-h-screen bg-[#0a0a12]">
       <Sidebar
         menu={[
-          { label: "Dashboard",         path: "/reviewer/dashboard",       icon: FiGrid },
+          { label: "Dashboard",path: "/reviewer/dashboard", icon: FiGrid },
           { label: "Reports to Review", path: "/reviewer/review-requests", icon: FiFileText },
-          { label: "Logout",            action: "logout",                   icon: FiLogOut },
+          { label: "Logout",  action: "logout", icon: FiLogOut },
         ]}
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
@@ -261,7 +261,6 @@ export default function ReviewRequests() {
               </button>
             </div>
           )}
-
         </div>
       </div>
     </div>

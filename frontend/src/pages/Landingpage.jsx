@@ -16,6 +16,7 @@ export default function LandingPage() {
           <a className="text-xl sm:text-2xl font-semibold" href="#home">AI for AI</a>
         </div>
 
+
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-10 text-gray-300">
           {["#home", "#features", "#how"].map((href, i) => (

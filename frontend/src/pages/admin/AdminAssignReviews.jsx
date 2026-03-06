@@ -28,8 +28,8 @@ export default function AdminAssignReviews() {
   const fetchData = async () => {
     try {
       const [rR, pR] = await Promise.all([
-        fetch("http://localhost:5000/api/reports/all",  { headers: { Authorization: `Bearer ${token}` } }),
-        fetch("http://localhost:5000/api/admin/team",   { headers: { Authorization: `Bearer ${token}` } }),
+        fetch("http://localhost:5000/api/reports/all", { headers: { Authorization: `Bearer ${token}` } }),
+        fetch("http://localhost:5000/api/admin/team", { headers: { Authorization: `Bearer ${token}` } }),
       ]);
       if (!rR.ok) throw new Error("Failed to fetch reports");
       if (!pR.ok) throw new Error("Failed to fetch peers");

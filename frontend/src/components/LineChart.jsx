@@ -32,7 +32,6 @@ export default function LineChart({ dataSet }) {
   };
 
   const selected = chartSets[view];
-
   const data = {
     labels: selected.labels,
     datasets: [

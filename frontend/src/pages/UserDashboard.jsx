@@ -19,7 +19,6 @@ export default function DashboardUser() {
 
   return (
     <div className="flex min-h-screen bg-[#0a0a12]">
-
       {/* Sidebar — receives open state + close handler */}
       <Sidebar
         menu={menu}

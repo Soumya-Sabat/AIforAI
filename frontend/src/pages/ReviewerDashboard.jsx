@@ -150,9 +150,9 @@ export default function ReviewerDashboard() {
     <div className="flex min-h-screen bg-[#0a0a12]">
       <Sidebar
         menu={[
-          { label: "Dashboard",         path: "/reviewer/dashboard",       icon: FiGrid },
+          { label: "Dashboard", path: "/reviewer/dashboard", icon: FiGrid },
           { label: "Reports to Review", path: "/reviewer/review-requests", icon: FiFileText },
-          { label: "Logout",            action: "logout",                   icon: FiLogOut },
+          { label: "Logout",action: "logout",icon: FiLogOut },
         ]}
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}

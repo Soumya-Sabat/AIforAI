@@ -90,7 +90,6 @@ export default function DualLineChart({ data }) {
           ))}
         </div>
       )}
-
       {/* Chart — shorter on mobile */}
       <div className="h-44 sm:h-56">
         <Line data={chartData} options={options} />

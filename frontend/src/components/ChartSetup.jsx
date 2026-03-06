@@ -21,4 +21,5 @@ ChartJS.register(
   Filler,
   Tooltip,
   Legend
+  
 );

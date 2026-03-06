@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import aiImg from "../assets/ai_governance.png";
-import { Link } from "react-router-dom";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -48,12 +47,11 @@ export default function Auth() {
     text-white placeholder-purple-300/60 focus:outline-none focus:ring-2
     focus:ring-purple-500/50 transition text-sm`;
 
-
   const selectCls = `w-full px-4 py-2.5 rounded-lg border border-purple-500/20 bg-white/10
     text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50
     transition text-sm bg-[#1f2937]`;
 
- 
+
   const RoleSelect = ({ name }) => (
     <select className={selectCls} name={name} onChange={handleChange}>
       <option value="user"  className="bg-[#1f2937] text-white">User</option>
@@ -61,7 +59,6 @@ export default function Auth() {
       <option value="admin" className="bg-[#1f2937] text-white">Admin</option>
     </select>
   );
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-black px-4 py-8 overflow-hidden">
 
@@ -120,7 +117,7 @@ export default function Auth() {
           </div>
         </div>
 
-        {/* ── MOBILE layout ── */}
+        {/*  MOBILE layout */}
         <div className="md:hidden p-6 space-y-5">
           <div className="flex rounded-lg bg-white/5 border border-white/10 p-1">
             <button onClick={() => setIsLogin(true)}
