@@ -116,6 +116,10 @@ function setupCommands(blockchain, p2pNode) {
         case 'review':
           await reviewSubmission(blockchain , rl);
           break;
+          
+        case 'upload':
+          await vedioUploadIPFS(blockchain,rl);
+          break;
 
         case 'sync':
           await p2pNode.syncWithNetwork();
@@ -159,6 +163,7 @@ function showMenu() {
   log('  submit   - Submit new content', 'cyan');
   log('  pending  - Show pending submissions', 'cyan');
   log('  review   - Review a submission', 'cyan');
+  log('  upload   - Uplaod to the IFPS', 'cyan');
   log('  sync     - Sync with network', 'cyan');
   log('  clear    - Clear screen', 'cyan');
   log('  help     - Show this menu', 'cyan');
@@ -378,6 +383,52 @@ async function reviewSubmission(blockchain , rl) {
     log(`  Certificate: ${result.certificate.certificateId}`, 'green');
     log(`  Block Index: ${result.blockIndex}`, 'green');
   }
+}
+
+async function vedioUploadIPFS(blockchain, rl) {
+  const { execSync } = require('child_process');
+
+  log('\n' + '='.repeat(60), 'cyan');
+  log('  UPLOAD VERIFIED VIDEOS TO IPFS MFS', 'bright');
+  log('='.repeat(60), 'cyan');
+
+  // Get all verified submissions from blockchain chain
+  const verifiedBlocks = blockchain.blockchain.chain.filter(
+    block => block.data?.certificate && block.data?.submission?.videoMetadata?.ipfsCID
+  );
+
+  if (verifiedBlocks.length === 0) {
+    log('\n⚠️  No verified submissions found to upload.', 'yellow');
+    log('   Make sure submissions are reviewed and approved first.', 'yellow');
+    return;
+  }
+
+  log(`\n  Found ${verifiedBlocks.length} verified submission(s). Uploading...\n`, 'cyan');
+
+  for (const block of verifiedBlocks) {
+    const cid = block.data.submission.videoMetadata.ipfsCID;
+    const submissionId = block.data.certificate.submissionId;
+
+    try {
+      // Direct upload to MFS root using submissionId as filename
+      execSync(`ipfs files cp /ipfs/${cid} /${submissionId}.mp4`);
+
+      log(`  ✅ Uploaded: ${submissionId}`, 'green');
+      log(`     CID: ${cid}`, 'cyan');
+      log(`     MFS Path: /${submissionId}`, 'cyan');
+      log(`     View at: http://localhost:8080/ipfs/${cid}`, 'cyan');
+      log('', 'reset');
+
+    } catch (err) {
+      if (err.message.includes('already exists')) {
+        log(`  ⚠️  Already in MFS: ${submissionId}`, 'yellow');
+      } else {
+        log(`  ❌ Failed: ${submissionId} → ${err.message}`, 'yellow');
+      }
+    }
+  }
+
+  log('='.repeat(60), 'cyan');
 }
 
 async function shutdown(blockchain, p2pNode) {
